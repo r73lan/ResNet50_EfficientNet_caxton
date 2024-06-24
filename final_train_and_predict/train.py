@@ -160,7 +160,7 @@ for i in range(3):
     elif (i == 1):
         train(model_resnet50, optim, loss_fn, max_epochs, history, device, train_loader_2, val_loader_2, '100k')
     elif (i == 2):
-        train(model_resnet50, optim, loss_fn, max_epochs, history, device, train_loader_3, val_loader_3, 'k')
+        train(model_resnet50, optim, loss_fn, max_epochs, history, device, train_loader_3, val_loader_3, '200k')
     with open(f'history{i}.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         headers = list(history.keys())
