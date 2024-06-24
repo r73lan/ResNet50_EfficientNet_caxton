@@ -29,7 +29,7 @@ class CaxtonDataset(Dataset):
         image = self.transform(image)
         return image, label
     
-    def set_seed(seed_value):
+def set_seed(seed_value):
     random.seed(seed_value)      
     np.random.seed(seed_value)    
     torch.manual_seed(seed_value) 
