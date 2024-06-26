@@ -12,5 +12,6 @@
 Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Т. 13. № 1. DOI: 10.1038/s41467-022-31985-y.
 
 Ссылка на репо от создателей датасета: https://github.com/cam-cambridge/caxton
+
 Ссылка, откуда скачивался датасет: https://www.repository.cam.ac.uk/handle/1810/339869
 
