@@ -11,8 +11,8 @@
 Директория final_train_and_predict представляет собой окончательную версию обучения. Перед обучением был гнаписан скрипт, обхединяющий все фотографии в одну директорию, обрезающий эти фотографии до меньшего размера и создания единого файла разметки (.csv)
 
 1. Статья, по которой найден датасет: 
-
-Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Т. 13. № 1. DOI: 10.1038/s41467-022-31985-y.
+    Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Т. 13. № 1. DOI: 
+    10.1038/s41467-022-31985-y.
 
 2. Ссылка на репо от создателей датасета: https://github.com/cam-cambridge/caxton
 
