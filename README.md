@@ -1,31 +1,27 @@
-# Результаты обучения ResNet50 на датасете Caxton
+# Training Results of ResNet50 on the Caxton Dataset
 
-Данный репозиторий представляет собой попытки обучения нейросети ResNet50 на части датасета Caxton. 
+This repository contains attempts to train the ResNet50 neural network on a portion of the Caxton dataset.
 
-Датасет содержит фотографии во время 3д печати и оценки четырех ключевых параметров печати: скорость движения сопла принтера, смещение по вертикали сопла, скорость подачи филамента, температура плавления пластика (feed_rate_class, z_offset_class, flow_rate_class, hotend_class)
+The dataset includes photographs taken during 3D printing and evaluations of four key printing parameters: nozzle movement speed, vertical nozzle offset, filament feed rate, and plastic melting temperature (feed_rate_class, z_offset_class, flow_rate_class, hotend_class).
 
-Оценка может быть 0 (слишком низкое значение), 1 (нормальное значение), 2 (слишком высокое значение)
+Each parameter can be evaluated as 0 (too low), 1 (normal), or 2 (too high).
 
-Датасет был скачан с официального сайта (см. ссылку внизу). Скачаны архивы print0...print182. В остальных print183..print191 содержатся неисправные изображения (со слов авторов датасета)
+The dataset was downloaded from the official website (see the link below). Archives print0...print182 were downloaded, while print183...print191 contain defective images (according to the dataset authors).
 
-Вся работа выполнена с помощью Python
+All work was performed using Python.
 
-Директория previous_work представляет собой первые версии обучения, с сохранением первоначальной структуры датасета.
-caxton_dataset_with_resnet.ipynb - результат обучения на 13к изображений.
-train3.py - первый удачный скрипт для обучения на всем датасете, результаты оказались совсем неубедительными. Также 1 эпоха длилась около 12 часов. Было решено отказаться от этого скрипта и изменить структуру датасета.
+The previous_work directory contains the initial training versions, maintaining the original dataset structure. The file caxton_dataset_with_resnet.ipynb shows training results on 13k images. train3.py is the first successful script for training on the entire dataset, but the results were quite unconvincing. Additionally, one epoch took about 12 hours. It was decided to abandon this script and change the dataset structure.
 
-Директория final_train_and_predict представляет собой окончательную версию обучения. Перед обучением были написан скрипты, обрезающие эти фотографии вокруг сопла принтера до меньшего размера (1ый от 1920x1080 до 320x320, второй от 320x320 до 224x244) и объединяющие все фотографии в одну директорию. Создается единый файл разметки (.csv). 
+The final_train_and_predict directory contains the final training version. Before training, scripts were written to crop these photographs around the printer nozzle to a smaller size (first from 1920x1080 to 320x320, then from 320x320 to 224x224) and to combine all photographs into one directory. A single annotation file (.csv) is created.
 
-1. Статья, по которой найден датасет
-   
-    Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Т. 13. № 1. DOI: 
-    10.1038/s41467-022-31985-y.
+Article where the dataset was found:
 
-3. Ссылка на репо от создателей датасета
-   
-   https://github.com/cam-cambridge/caxton
+Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Vol. 13, No. 1. DOI: 10.1038/s41467-022-31985-y.
 
-5. Ссылка, откуда скачивался датасет
-   
-   https://www.repository.cam.ac.uk/handle/1810/339869
+Link to the repository by the dataset creators:
 
+https://github.com/cam-cambridge/caxton
+
+Link to download the dataset:
+
+https://www.repository.cam.ac.uk/handle/1810/339869
