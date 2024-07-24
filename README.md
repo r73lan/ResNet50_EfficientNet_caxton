@@ -14,14 +14,14 @@ The previous_work directory contains the initial training versions, maintaining 
 
 The final_train_and_predict directory contains the final training version. Before training, scripts were written to crop these photographs around the printer nozzle to a smaller size (first from 1920x1080 to 320x320, then from 320x320 to 224x224) and to combine all photographs into one directory. A single annotation file (.csv) is created.
 
-Article where the dataset was found:
+**Article where the dataset was found**
 
 Brion D. A. J., Pattinson S. W. Generalisable 3D Printing Error Detection and Correction via Multi-Head Neural Networks // Nature Communications. 2022. Vol. 13, No. 1. DOI: 10.1038/s41467-022-31985-y.
 
-Link to the repository by the dataset creators:
+**Link to the repository by the dataset creators**
 
 https://github.com/cam-cambridge/caxton
 
-Link to download the dataset:
+**Link to download the dataset**
 
 https://www.repository.cam.ac.uk/handle/1810/339869
