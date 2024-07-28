@@ -19,16 +19,12 @@ def set_seed(seed_value):
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed_value)
 
-def split_sequence(array_indices, train_fraction=0.8):
+def split_sequence(array_indices, train_fraction=0.9):
     size = len(array_indices)
-    train_size = int(train_fraction * size)
-    val_size = int(size * (1 - train_fraction) / 2)
-
+    train_size = int(train_fraction * size)    
     train_indices = array_indices[:train_size]
-    val_indices = array_indices[train_size:train_size+val_size]
-    test_indices = array_indices[train_size+val_size:]
-
-    return train_indices, val_indices, test_indices
+    test_indices = array_indices[train_size:]
+    return train_indices, test_indices
 
 class CaxtonDataset(Dataset):
     def __init__(self, annotations_file, img_dir, transform=None):
@@ -91,9 +87,6 @@ test_dataset_1 = Subset(dataset, test_indices)
 train_loader_1 = DataLoader(train_dataset_1, batch_size=32, shuffle=True, num_workers=os.cpu_count()-1)
 test_loader_1 = DataLoader(test_dataset_1, batch_size=32, shuffle=False, num_workers=os.cpu_count()-1)
 
-test_dataset = Subset(dataset, test_indices)
-test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, num_workers=os.cpu_count()-1)
-
 def predict(model, test_dataloader):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     count_correct = 0
@@ -116,12 +109,13 @@ def predict(model, test_dataloader):
 corr = dict()
 model = Effnet()
 model.load_state_dict(torch.load(f'/content/drive/MyDrive/weights/effnet_1000k_weights_epoch3.pth'))
-corr_i = predict(model, test_loader).item()
-corr['1000k, ep3'] = corr_i / (len(test_dataset)*4)
+
+corr_i = predict(model, test_loader_1).item()
+corr['1000k, ep3'] = corr_i / (len(test_dataset_1)*4)
 
 model.load_state_dict(torch.load(f'/content/drive/MyDrive/weights/resnet_1000k_weights_epoch4.pth'))
-corr_i = predict(model, test_loader).item()
-corr['1000k, ep4'] = corr_i / (len(test_dataset)*4)
+corr_i = predict(model, test_loader_1).item()
+corr['1000k, ep4'] = corr_i / (len(test_loader_1)*4)
 
 with open('data.csv', 'w', newline='') as f:
     writer = csv.writer(f)
