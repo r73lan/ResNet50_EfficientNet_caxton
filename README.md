@@ -1,6 +1,6 @@
-# Training Results of ResNet50 on the Caxton Dataset
+# Training Results of ResNet50 and EfficientNet on the Caxton Dataset
 
-This repository contains attempts to train the ResNet50 neural network on a portion of the Caxton dataset.
+This repository contains attempts to train the ResNet50 and EfficientNet on the Caxton dataset.
 
 The dataset includes photographs taken during 3D printing and evaluations of four key printing parameters: nozzle movement speed, vertical nozzle offset, filament feed rate, and plastic melting temperature (feed_rate_class, z_offset_class, flow_rate_class, hotend_class).
 
