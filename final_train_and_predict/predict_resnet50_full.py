@@ -77,7 +77,7 @@ dataset = CaxtonDataset(
 set_seed(42)
 size_subdataset = len(dataset)
 random_indices =  np.random.choice(len(dataset), size_subdataset, replace=False)
-train_indices, val_indices, test_indices = split_sequence(random_indices) 
+train_indices, test_indices = split_sequence(random_indices) 
 
 test_dataset = Subset(dataset, test_indices)
 test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, num_workers=os.cpu_count()-1)
