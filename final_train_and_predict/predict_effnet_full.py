@@ -15,10 +15,7 @@ import timm
 def set_seed(seed_value):
     random.seed(seed_value)
     np.random.seed(seed_value)
-    torch.manual_seed(seed_value)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed_value)
-
+    
 def split_sequence(array_indices, train_fraction=0.9):
     size = len(array_indices)
     train_size = int(train_fraction * size)    
